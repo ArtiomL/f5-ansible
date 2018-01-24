@@ -1,0 +1,8 @@
+[bigips]
+192.168.1.245
+
+[bigips:vars]
+bigip_username="admin"
+bigip_password="admin"
+bigip_port=443
+validate_certs="no"
