@@ -1,0 +1,43 @@
+---
+
+- name: Destroy a web app (VS, pool, nodes)
+  hosts: bigips
+  gather_facts: False
+  connection: local
+
+  tasks:
+    - name: Delete a VS
+      bigip_virtual_server:
+        name: "vs_Web"
+        state: "absent"
+        server: "{{ inventory_hostname }}"
+        user: "{{ bip_user }}"
+        password: "{{ bip_pass }}"
+        validate_certs: "{{ val_certs }}"
+
+    - name: Delete a pool
+      bigip_pool:
+        name: "pool_Web"
+        state: "absent"
+        server: "{{ inventory_hostname }}"
+        user: "{{ bip_user }}"
+        password: "{{ bip_pass }}"
+        validate_certs: "{{ val_certs }}"
+
+    - name: Delete first node
+      bigip_node:
+        name: "node_Srv1"
+        state: "absent"
+        server: "{{ inventory_hostname }}"
+        user: "{{ bip_user }}"
+        password: "{{ bip_pass }}"
+        validate_certs: "{{ val_certs }}"
+
+    - name: Delete second node
+      bigip_node:
+        name: "node_Srv2"
+        state: "absent"
+        server: "{{ inventory_hostname }}"
+        user: "{{ bip_user }}"
+        password: "{{ bip_pass }}"
+        validate_certs: "{{ val_certs }}"
