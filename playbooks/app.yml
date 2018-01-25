@@ -9,7 +9,7 @@
     state: "present"
 
   tasks:
-    - name: Create a VS
+    - name: Adjust a VS
       bigip_virtual_server:
         name: "vs_Web"
         destination: "10.100.115.10"
@@ -26,7 +26,7 @@
         password: "{{ bip_pass }}"
         validate_certs: "{{ val_certs }}"
 
-    - name: Create a pool
+    - name: Adjust a pool
       bigip_pool:
         name: "pool_Web"
         monitors: "/Common/http"
@@ -39,7 +39,7 @@
         password: "{{ bip_pass }}"
         validate_certs: "{{ val_certs }}"
 
-    - name: Create first node
+    - name: Adjust first node
       bigip_node:
         name: "node_Srv1"
         host: "10.100.112.1"
@@ -49,7 +49,7 @@
         password: "{{ bip_pass }}"
         validate_certs: "{{ val_certs }}"
 
-    - name: Create second node
+    - name: Adjust second node
       bigip_node:
         name: "node_Srv2"
         host: "10.100.112.2"
