@@ -7,4 +7,5 @@ docker run -it artioml/f5-ansible
 
 ```
 ansible-playbook playbooks/app.yml -e @creds.yml
+Vault password: **password**
 ```
