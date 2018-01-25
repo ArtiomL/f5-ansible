@@ -3,4 +3,4 @@
 
 [bigips:vars]
 bigip_port=443
-validate_certs="no"
+val_certs="no"
