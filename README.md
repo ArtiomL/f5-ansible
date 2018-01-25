@@ -2,7 +2,10 @@
 
 #### `Run`
 ```shell
+# Stable
 docker run -it artioml/f5-ansible
+# Experimental
+docker run -it artioml/f5-ansible:dev
 ```
 
 &nbsp;
@@ -17,6 +20,6 @@ Vault password: password
 
 #### `Destroy`
 ```shell
-ansible-playbook playbooks/unapp.yml -e @creds.yml
+ansible-playbook playbooks/app.yml -e @creds.yml -e state="absent"
 Vault password: password
 ```
