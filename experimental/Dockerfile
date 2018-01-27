@@ -1,17 +1,17 @@
 # f5-ansible:dev - Dockerfile
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.0, 25/01/2018
+# v1.0.1, 27/01/2018
 
 FROM alpine
 
-LABEL maintainer="Artiom Lichtenstein" version="1.0.0"
+LABEL maintainer="Artiom Lichtenstein" version="1.0.1"
 
 # Core dependencies
 RUN apk add --update --no-cache gcc git libc-dev libffi libffi-dev make openssl openssl-dev py-pip python2-dev && \
 	pip install bigsuds f5-sdk netaddr deepdiff && \
 	pip install git+https://github.com/ansible/ansible.git && \
-	apk del gcc git libc-dev libffi libffi-dev make openssl-dev python2-dev && \
+	apk del gcc git libc-dev libffi libffi-dev make openssl-dev py-pip python2-dev && \
 	rm -rf /var/cache/apk/*
 
 # Ansible
