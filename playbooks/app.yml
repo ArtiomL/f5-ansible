@@ -1,36 +1,59 @@
 ---
 
-- name: Deploy a web app (VS, pool, nodes)
+- name: Deploy / destroy a web app (VS, pool, nodes)
   hosts: bigips
   gather_facts: False
   connection: local
 
+  vars:
+    state: "present"
+
   tasks:
-    - name: Create a pool
+    - name: Adjust a VS
+      bigip_virtual_server:
+        name: "vs_Web"
+        destination: "10.100.115.10"
+        port: "443"
+        description: "Web App"
+        snat: "Automap"
+        all_profiles:
+          - "http"
+          - "clientssl"
+          - "tcp-lan-optimized"
+        state: "{{ state }}"
+        server: "{{ inventory_hostname }}"
+        user: "{{ bip_user }}"
+        password: "{{ bip_pass }}"
+        validate_certs: "{{ val_certs }}"
+
+    - name: Adjust a pool
       bigip_pool:
         name: "pool_Web"
         monitors: "/Common/http"
         monitor_type: "and_list"
         slow_ramp_time: "120"
         lb_method: "ratio-member"
+        state: "{{ state }}"
         server: "{{ inventory_hostname }}"
         user: "{{ bip_user }}"
         password: "{{ bip_pass }}"
         validate_certs: "{{ val_certs }}"
 
-    - name: Create first node
+    - name: Adjust first node
       bigip_node:
         name: "node_Srv1"
         host: "10.100.112.1"
+        state: "{{ state }}"
         server: "{{ inventory_hostname }}"
         user: "{{ bip_user }}"
         password: "{{ bip_pass }}"
         validate_certs: "{{ val_certs }}"
 
-    - name: Create second node
+    - name: Adjust second node
       bigip_node:
         name: "node_Srv2"
         host: "10.100.112.2"
+        state: "{{ state }}"
         server: "{{ inventory_hostname }}"
         user: "{{ bip_user }}"
         password: "{{ bip_pass }}"
@@ -42,6 +65,7 @@
         host: "{{ item.host }}"
         port: "80"
         pool: "pool_Web"
+        state: "{{ state }}"
         server: "{{ inventory_hostname }}"
         user: "{{ bip_user }}"
         password: "{{ bip_pass }}"
@@ -51,20 +75,15 @@
           host: "10.100.112.1"
         - name: "node_Srv2"
           host: "10.100.112.2"
+      when: state == "present"
 
-    - name: Create a VS
+    - name: Update a VS
       bigip_virtual_server:
         name: "vs_Web"
-        destination: "10.100.115.10"
-        port: "443"
         pool: "pool_Web"
-        description: "Web App"
-        snat: "Automap"
-        all_profiles:
-          - "http"
-          - "clientssl"
-          - "tcp-lan-optimized"
+        state: "{{ state }}"
         server: "{{ inventory_hostname }}"
         user: "{{ bip_user }}"
         password: "{{ bip_pass }}"
         validate_certs: "{{ val_certs }}"
+      when: state == "present"
