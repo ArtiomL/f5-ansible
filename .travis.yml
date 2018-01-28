@@ -18,8 +18,8 @@ script:
   - docker build -t $REPO .
   - cp experimental/Dockerfile .
   - docker build -t $REPO:dev .
-  - docker run -dit $REPO
-  - docker ps -a
+  - docker run -u0 $REPO /bin/sh -c 'rm -f ansible.cfg; ansible-playbook -i inventory/hosts playbooks/app.yml --list-hosts | grep 10.100.113.245'
+  - docker run -u0 $REPO:dev /bin/sh -c 'rm -f ansible.cfg; ansible-playbook -i inventory/hosts playbooks/app.yml --list-hosts | grep 10.100.113.245'
 
 after_success:
   - docker images
