@@ -1,7 +1,7 @@
 # f5-ansible - CI Build
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.0, 27/01/2018
+# v1.0.1, 28/01/2018
 
 sudo: required
 
@@ -16,14 +16,17 @@ services:
 
 script:
   - docker build -t $REPO .
-  - docker run -dit $REPO
-  - docker ps -a
+  - cp experimental/Dockerfile .
+  - docker build -t $REPO:dev .
+  - docker run -u0 $REPO /bin/sh -c 'rm -f ansible.cfg; ansible-playbook -i inventory/hosts playbooks/app.yml --list-hosts | grep 10.100.113.245'
+  - docker run -u0 $REPO:dev /bin/sh -c 'rm -f ansible.cfg; ansible-playbook -i inventory/hosts playbooks/app.yml --list-hosts | grep 10.100.113.245'
 
 after_success:
   - docker images
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u $DOCKER_USER -p $DOCKER_PASS;
     docker push $REPO;
+    docker push $REPO:dev;
     fi
 
 notifications:

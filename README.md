@@ -2,7 +2,10 @@
 
 #### `Run`
 ```shell
+# Stable
 docker run -it artioml/f5-ansible
+# Experimental
+docker run -it artioml/f5-ansible:dev
 ```
 
 &nbsp;
