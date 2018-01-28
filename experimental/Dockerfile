@@ -11,7 +11,7 @@ LABEL maintainer="Artiom Lichtenstein" version="1.0.1"
 RUN apk add --update --no-cache gcc git libc-dev libffi libffi-dev make openssl openssl-dev py-pip python2-dev && \
 	pip install bigsuds f5-sdk netaddr deepdiff && \
 	pip install git+https://github.com/ansible/ansible.git && \
-	apk del gcc git libc-dev libffi libffi-dev make openssl-dev py-pip python2-dev && \
+	apk del gcc git libc-dev libffi libffi-dev make openssl-dev python2-dev && \
 	rm -rf /var/cache/apk/*
 
 # Ansible
