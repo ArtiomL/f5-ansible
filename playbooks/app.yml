@@ -10,10 +10,10 @@
 
   environment:
     F5_SERVER: "{{ inventory_hostname }}"
-    F5_USER: "{{ bip_user }}"
-    F5_PASSWORD: "{{ bip_pass }}"
+    F5_USER: "{{ bigip_user }}"
+    F5_PASSWORD: "{{ bigip_pass }}"
     F5_VALIDATE_CERTS: "{{ val_certs }}"
-    F5_SERVER_PORT: "{{ bip_port }}"
+    F5_SERVER_PORT: "{{ bigip_port }}"
 
   tasks:
     - name: Adjust a VS
@@ -70,3 +70,13 @@
         pool: "pool_Web"
         state: "{{ state }}"
       when: state == "present"
+
+    - name: Slack notification
+      slack:
+        token: "{{ slack_token }}"
+        username: "Ansible"
+        icon_url: "http://raw.githubusercontent.com/ArtiomL/f5-ansible/develop/img/ansired.png"
+        color: good
+        msg: ":thumbsup: `state = {{ state }}`"
+
+...
