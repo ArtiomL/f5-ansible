@@ -1,5 +1,5 @@
 [bigips]
-10.100.113.245
+bip_A.f5labs.one
 
 [bigips:vars]
 bigip_port=443
