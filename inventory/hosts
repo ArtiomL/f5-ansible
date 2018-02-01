@@ -2,5 +2,5 @@
 10.100.113.245
 
 [bigips:vars]
-bigip_port=443
+bip_port=443
 val_certs="no"
