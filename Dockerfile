@@ -1,14 +1,14 @@
 # f5-ansible - Dockerfile
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.2, 02/02/2018
+# v1.0.3, 04/02/2018
 
 FROM alpine
 
 LABEL maintainer="Artiom Lichtenstein" version="1.0.2"
 
 # Core dependencies
-RUN apk add --update --no-cache ansible py-pip && \
+RUN apk add --update --no-cache ansible git py-pip && \
 	pip install bigsuds f5-sdk netaddr deepdiff && \
 	apk del py-pip && \
 	rm -rf /var/cache/apk/*
@@ -25,4 +25,4 @@ RUN chown -RL user: /opt/ansible/
 USER 1001
 
 # Run
-CMD ["/bin/sh"]
+CMD ["scripts/start.sh"]
