@@ -17,9 +17,10 @@ RUN apk add --update --no-cache ansible git py-pip && \
 COPY / /opt/ansible/
 WORKDIR /opt/ansible/
 
-# System account
+# System account and permissions
 RUN adduser -u 1001 -D user
 RUN chown -RL user: /opt/ansible/
+RUN chmod +x scripts/start.sh
 
 # UID to use when running the image and for CMD
 USER 1001
