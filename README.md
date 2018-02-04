@@ -13,6 +13,11 @@
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
+	- [Run](#run)
+	- [Credentials](#credentials)
+- [Playbooks](#playbooks)
+	- [Deploy](#deploy)
+	- [Destroy](#destroy)
 - [License](LICENSE)
 
 &nbsp;&nbsp;
@@ -25,7 +30,7 @@ Essential Ansible container(s) with F5 modules and extensible playbooks.
 
 ## Installation
 
-#### `Run`
+#### Run
 ```shell
 # Stable
 docker run -it artioml/f5-ansible
@@ -35,7 +40,7 @@ docker run -it artioml/f5-ansible:dev
 
 &nbsp;
 
-#### `Credentials`
+#### Credentials
 ```shell
 # View
 ansible-vault view creds.yml
@@ -48,9 +53,11 @@ ansible-vault edit creds.yml
 Vault password: password
 ```
 
-&nbsp;
+&nbsp;&nbsp;
 
-#### `Deploy`
+## Playbooks
+
+#### Deploy
 ```shell
 ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
 Vault password: password
@@ -58,7 +65,7 @@ Vault password: password
 
 &nbsp;
 
-#### `Destroy`
+#### Destroy
 ```shell
 ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 Vault password: password
