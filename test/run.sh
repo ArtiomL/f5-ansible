@@ -1,4 +1,9 @@
 #!/bin/bash
+# f5-ansible - Run Tests
+# https://github.com/ArtiomL/f5-ansible
+# Artiom Lichtenstein
+# v1.0.0, 04/02/2018
+
 set -xe
 set -o pipefail
 
