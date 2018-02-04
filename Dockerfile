@@ -5,7 +5,7 @@
 
 FROM alpine
 
-LABEL maintainer="Artiom Lichtenstein" version="1.0.2"
+LABEL maintainer="Artiom Lichtenstein" version="1.0.3"
 
 # Core dependencies
 RUN apk add --update --no-cache ansible git py-pip && \
