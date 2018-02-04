@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![Slack Status](https://f5cloudsolutions.herokuapp.com/badge.svg)](https://f5cloudsolutions.herokuapp.com)
 
+&nbsp;&nbsp;
 
 #### `Run`
 ```shell
@@ -36,7 +37,7 @@ Vault password: password
 
 #### `Deploy`
 ```shell
-ansible-playbook playbooks/app.yml -e @creds.yml
+ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
 Vault password: password
 ```
 
@@ -44,6 +45,6 @@ Vault password: password
 
 #### `Destroy`
 ```shell
-ansible-playbook playbooks/app.yml -e @creds.yml -e state="absent"
+ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 Vault password: password
 ```
