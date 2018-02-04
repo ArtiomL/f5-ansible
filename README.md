@@ -19,7 +19,7 @@
 
 ## Description
 
-Essential Ansible containers with F5 modules and extensible playbooks.
+Essential Ansible container(s) with F5 modules and extensible playbooks.
 
 &nbsp;&nbsp;
 
