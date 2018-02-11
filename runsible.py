@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# f5-ansible - Run Ansible playbooks
+# f5-ansible - Run Playbooks
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
 # v1.0.0, 11/02/2018
@@ -18,7 +18,7 @@ def funArgParser():
 		description = 'Run Ansible playbooks, executing the defined tasks on targeted hosts',
 		epilog = 'https://github.com/ArtiomL/f5-ansible')
 	objArgParser.add_argument('-d', '--deploy', help ='deploy a playbook (default)', action = 'store_true')
-	objArgParser.add_argument('-t', '--teardown', help ='teardown a playbook', action = 'store_true')
+	objArgParser.add_argument('-t', '--teardown', help ='teardown a playbook state', action = 'store_true')
 	objArgParser.add_argument('-v', '--verbose', help='increase output verbosity', action='store_true')
 	objArgParser.add_argument('PLAYBOOK', help = 'playbook name', nargs = '?', default = 'app')
 	return objArgParser.parse_args()
@@ -26,14 +26,13 @@ def funArgParser():
 
 def main():
 	objArgs = funArgParser()
-	strState = ''
-	strVerb = ''
+	strState = strVerbose = ''
 	strPlay = 'playbooks/%s.yml' % objArgs.PLAYBOOK
 	if objArgs.teardown:
 		strState = '-e state="absent"'
 	if objArgs.verbose:
-		strVerb = '-vvv'
-	strCmd = 'ansible-playbook %s -e @creds.yml --ask-vault-pass %s %s' % (strPlay, strState, strVerb)
+		strVerbose = '-vvv'
+	strCmd = 'ansible-playbook %s -e @creds.yml --ask-vault-pass %s %s' % (strPlay, strState, strVerbose)
 	subprocess.call(strCmd, shell = True)
 
 
