@@ -31,7 +31,7 @@ Essential Ansible container(s) with F5 modules and extensible playbooks.
 
 ## Installation
 
-#### Run
+### Run
 ```shell
 # Stable
 docker run -it artioml/f5-ansible
@@ -41,7 +41,7 @@ docker run -it artioml/f5-ansible:dev
 
 &nbsp;
 
-#### Credentials
+### Credentials
 The encrypted [creds.yml](creds.yml) file contains the BIG-IP credentials and the Slack Webhook token.
 
 The vault password is: **_password_**
@@ -64,19 +64,19 @@ Vault password: password
 
 ## Playbooks
 
-#### Deploy
+### Deploy
 ```shell
 ./runsible.py
-# Which is the same as:
+# Which executes:
 # ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
 ```
 
 &nbsp;
 
-#### Teardown
+### Teardown
 ```shell
 ./runsible.py -t
-# Which is the same as:
+# Which executes:
 # ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 ```
 
