@@ -63,12 +63,14 @@ Vault password: password
 &nbsp;&nbsp;
 
 ## Extensibility
-The container will dynamically pull down whatever GitHub repository is specified in the `REPO` environment variable. This enables Continuous Delivery of new content every time the container is started and that repository is updated. This also allows you to load and run your own customer Ansible environment.
+The container will dynamically pull down (and `cd` to) whatever GitHub repository is specified in the `REPO` environment variable.
+This enables Continuous Delivery of new content every time the container is started and that repository is updated.
+It also allows you to load and run your own custom Ansible environment.
 
 ```shell
 -e "REPO=<GitHub_Username>/<Repo_Name>"
 ```
-For example:
+For [example](https://github.com/jmcalalang/Ansible_Meetups):
 ```shell
 docker run -it -e "REPO=jmcalalang/Ansible_Meetups" artioml/f5-ansible
 ```
