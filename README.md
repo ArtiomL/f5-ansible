@@ -1,7 +1,7 @@
 # <img align="center" src="img/ansible.svg" width="70">&nbsp;&nbsp; f5-ansible
 [![Build Status](https://img.shields.io/travis/ArtiomL/f5-ansible/develop.svg)](https://travis-ci.org/ArtiomL/f5-ansible)
 [![Releases](https://img.shields.io/github/release/ArtiomL/f5-ansible.svg)](https://github.com/ArtiomL/f5-ansible/releases)
-[![Commits](https://img.shields.io/github/commits-since/ArtiomL/f5-ansible/v1.0.0.svg?label=commits%20since)](https://github.com/ArtiomL/f5-ansible/commits/master)
+[![Commits](https://img.shields.io/github/commits-since/ArtiomL/f5-ansible/latest.svg?label=commits%20since)](https://github.com/ArtiomL/f5-ansible/commits/master)
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/ArtiomL/f5-ansible/graphs/code-frequency)
 [![Issues](https://img.shields.io/github/issues/ArtiomL/f5-ansible.svg)](https://github.com/ArtiomL/f5-ansible/issues)
 [![Docker Hub](https://img.shields.io/docker/pulls/artioml/f5-ansible.svg)](https://hub.docker.com/r/artioml/f5-ansible/)
@@ -63,9 +63,7 @@ Vault password: password
 &nbsp;&nbsp;
 
 ## Extensibility
-The container will dynamically pull down (and `cd` to) whatever GitHub repository is specified in the `REPO` environment variable.
-This enables Continuous Delivery of new content every time the container is started and that repository is updated.
-It also allows you to load and run your own custom Ansible environments.
+The container will dynamically pull down (and `cd` to) whatever GitHub repository is specified in the `REPO` environment variable. This enables Continuous Delivery of new content every time the container is started and that repository is updated. It also allows you to load and run your own custom Ansible environments.
 
 ```shell
 -e "REPO=<GitHub_Username>/<Repo_Name>"
