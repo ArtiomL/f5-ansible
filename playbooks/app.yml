@@ -1,6 +1,6 @@
 ---
 
-- name: Deploy / teardown a web app (VS, pool, nodes)
+- name: Imperative: Deploy / teardown a web app (VS, pool, nodes)
   hosts: bigips
   gather_facts: False
   connection: local
@@ -8,12 +8,7 @@
   vars:
     state: "present"
 
-  environment:
-    F5_SERVER: "{{ inventory_hostname }}"
-    F5_USER: "{{ bigip_user }}"
-    F5_PASSWORD: "{{ bigip_pass }}"
-    F5_VALIDATE_CERTS: "{{ val_certs }}"
-    F5_SERVER_PORT: "{{ bigip_port }}"
+  environment: "{{ bigip_env }}"
 
   tasks:
     - name: Adjust a VS
