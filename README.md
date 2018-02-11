@@ -15,6 +15,7 @@
 - [Installation](#installation)
 	- [Run](#run)
 	- [Credentials](#credentials)
+- [Extensibility](#extensibility)
 - [Playbooks](#playbooks)
 	- [Deploy](#deploy)
 	- [Teardown](#teardown)
@@ -57,6 +58,19 @@ Modify:
 ```shell
 ansible-vault edit creds.yml
 Vault password: password
+```
+
+&nbsp;&nbsp;
+
+## Extensibility
+The container will dynamically pull down whatever GitHub repository is specified in the `REPO` environment variable. This enables Continuous Delivery of new content every time the container is started and that repository is updated. This also allows you to load and run your own customer Ansible environment.
+
+```shell
+-e "REPO=<GitHub_Username>/<Repo_Name>"
+```
+For example:
+```shell
+docker run -it -e "REPO=jmcalalang/Ansible_Meetups" artioml/f5-ansible
 ```
 
 &nbsp;&nbsp;
