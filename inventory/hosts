@@ -1,6 +1,2 @@
 [bigips]
 bip_A.f5labs.one
-
-[bigips:vars]
-bigip_port=443
-val_certs="no"
