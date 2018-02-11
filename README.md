@@ -83,13 +83,14 @@ Vault password: password
 &nbsp;&nbsp;
 
 ## --help
+```shell
 ./runsible.py --help
 usage: runsible.py [-h] [-d] [-t] [-v] [PLAYBOOK]
 
 Run Ansible playbooks, executing the defined tasks on targeted hosts
 
 positional arguments:
-  PLAYBOOK        playbook name
+  PLAYBOOK        playbook name (default: app)
 
 optional arguments:
   -h, --help      show this help message and exit
@@ -98,3 +99,4 @@ optional arguments:
   -v, --verbose   increase output verbosity
 
 https://github.com/ArtiomL/f5-ansible
+```
