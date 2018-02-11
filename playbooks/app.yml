@@ -19,8 +19,8 @@
         description: "Web App"
         snat: "Automap"
         all_profiles:
-		  - "tcp-lan-optimized"
-		  - "clientssl"
+          - "tcp-lan-optimized"
+          - "clientssl"
           - "http"
           - "analytics"
         state: "{{ state }}"
