@@ -1,6 +1,6 @@
 ---
 
-- name: Deploy / destroy a web app (VS, pool, nodes)
+- name: Deploy / teardown a web app (VS, pool, nodes)
   hosts: bigips
   gather_facts: False
   connection: local
