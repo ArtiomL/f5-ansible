@@ -1,5 +1,5 @@
 # <img align="center" src="img/ansible.svg" width="70">&nbsp;&nbsp; f5-ansible
-[![Build Status](https://img.shields.io/travis/ArtiomL/f5-ansible.svg)](https://travis-ci.org/ArtiomL/f5-ansible)
+[![Build Status](https://img.shields.io/travis/ArtiomL/f5-ansible/develop.svg)](https://travis-ci.org/ArtiomL/f5-ansible)
 [![Releases](https://img.shields.io/github/release/ArtiomL/f5-ansible.svg)](https://github.com/ArtiomL/f5-ansible/releases)
 [![Commits](https://img.shields.io/github/commits-since/ArtiomL/f5-ansible/v1.0.0.svg?label=commits%20since)](https://github.com/ArtiomL/f5-ansible/commits/master)
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/ArtiomL/f5-ansible/graphs/code-frequency)
@@ -43,7 +43,7 @@ docker run -it artioml/f5-ansible:dev
 #### Credentials
 The encrypted [creds.yml](creds.yml) file contains the BIG-IP credentials and the Slack Webhook token.
 
-The Vault password is: **_password_**
+The vault password is: **_password_**
 
 View:
 ```shell
@@ -63,14 +63,13 @@ Vault password: password
 
 ## Playbooks
 
+The vault password is: **_password_**
+
 #### Deploy
 ```shell
 ./runsible.py
-```
-Or:
-```shell
+# Which is the same as:
 ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
-Vault password: password
 ```
 
 &nbsp;
@@ -78,9 +77,6 @@ Vault password: password
 #### Teardown
 ```shell
 ./runsible.py -t
-```
-Or:
-```shell
+# Which is the same as:
 ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
-Vault password: password
 ```
