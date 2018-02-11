@@ -1,0 +1,22 @@
+---
+
+- name: "Imperative: Run a tmsh command"
+  hosts: bigips
+  gather_facts: False
+  connection: local
+
+  environment: "{{ bigip_env }}"
+
+  tasks:
+    - name: View system version and LTM configuration
+      bigip_command:
+        commands:
+          - show /sys version detail
+          - list /ltm virtual all
+          - list /ltm pool all
+          - list /ltm node all
+      register: result
+
+    - debug: msg="{{ result.stdout_lines }}"
+
+...
