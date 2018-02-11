@@ -42,7 +42,7 @@ docker run -it artioml/f5-ansible:dev
 &nbsp;
 
 ### Credentials
-The encrypted [creds.yml](creds.yml) file contains the BIG-IP credentials and the Slack Webhook token.
+The [encrypted](https://docs.ansible.com/ansible/latest/vault.html) `creds.yml` file contains the BIG-IP credentials and the Slack Webhook token.
 
 The vault password is: **_password_**
 
@@ -54,6 +54,7 @@ bigip_user: "admin"
 bigip_pass: "admin"
 slack_token: "thetoken/generatedby/slack"
 ```
+
 Modify:
 ```shell
 ansible-vault edit creds.yml
