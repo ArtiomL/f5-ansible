@@ -17,7 +17,7 @@
 	- [Credentials](#credentials)
 - [Playbooks](#playbooks)
 	- [Deploy](#deploy)
-	- [Destroy](#destroy)
+	- [Teardown](#teardown)
 - [License](LICENSE)
 
 &nbsp;&nbsp;
@@ -59,13 +59,21 @@ Vault password: password
 
 #### Deploy
 ```shell
+./runsible.py
+```
+Or:
+```shell
 ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
 Vault password: password
 ```
 
 &nbsp;
 
-#### Destroy
+#### Teardown
+```shell
+./runsible.py -t
+```
+Or:
 ```shell
 ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 Vault password: password
