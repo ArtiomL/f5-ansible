@@ -20,7 +20,7 @@ def funArgParser():
 	objArgParser.add_argument('-d', '--deploy', help ='deploy a playbook (default)', action = 'store_true')
 	objArgParser.add_argument('-t', '--teardown', help ='teardown a playbook state', action = 'store_true')
 	objArgParser.add_argument('-v', '--verbose', help='increase output verbosity', action='store_true')
-	objArgParser.add_argument('PLAYBOOK', help = 'playbook name', nargs = '?', default = 'app')
+	objArgParser.add_argument('PLAYBOOK', help = 'playbook name (default: app)', nargs = '?', default = 'app')
 	return objArgParser.parse_args()
 
 
