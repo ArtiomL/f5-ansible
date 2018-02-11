@@ -46,7 +46,7 @@ The [encrypted](https://docs.ansible.com/ansible/latest/vault.html) [creds.yml](
 
 The vault password is: **_password_**
 
-> View:
+View:
 ```shell
 ansible-vault view creds.yml
 Vault password: password
@@ -55,7 +55,7 @@ bigip_pass: "admin"
 slack_token: "thetoken/generatedby/slack"
 ```
 
-> Modify:
+Modify:
 ```shell
 ansible-vault edit creds.yml
 Vault password: password
@@ -67,7 +67,7 @@ Vault password: password
 
 ### Deploy
 ```shell
-./runsible.py {Playbook_Name}
+./runsible.py {playbook_name}
 ```
 For example:
 ```shell
@@ -80,7 +80,11 @@ For example:
 
 ### Teardown
 ```shell
-./runsible.py -t
+./runsible.py -t {playbook_name}
+```
+For example:
+```shell
+./runsible.py -t app
 # Which executes:
 # ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 ```
