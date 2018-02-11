@@ -18,6 +18,7 @@
 - [Playbooks](#playbooks)
 	- [Deploy](#deploy)
 	- [Teardown](#teardown)
+- [Help](#--help)
 - [License](LICENSE)
 
 &nbsp;&nbsp;
@@ -63,13 +64,11 @@ Vault password: password
 
 ## Playbooks
 
-The vault password is: **_password_**
-
 #### Deploy
 ```shell
 ./runsible.py
 # Which is the same as:
-ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
+# ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
 ```
 
 &nbsp;
@@ -78,5 +77,24 @@ ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass
 ```shell
 ./runsible.py -t
 # Which is the same as:
-ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
+# ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 ```
+
+&nbsp;&nbsp;
+
+## --help
+./runsible.py --help
+usage: runsible.py [-h] [-d] [-t] [-v] [PLAYBOOK]
+
+Run Ansible playbooks, executing the defined tasks on targeted hosts
+
+positional arguments:
+  PLAYBOOK        playbook name
+
+optional arguments:
+  -h, --help      show this help message and exit
+  -d, --deploy    deploy a playbook (default)
+  -t, --teardown  teardown a playbook state
+  -v, --verbose   increase output verbosity
+
+https://github.com/ArtiomL/f5-ansible
