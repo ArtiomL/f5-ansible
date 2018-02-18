@@ -1,0 +1,27 @@
+---
+
+- name: "Declarative: Deploy / teardown a Service Template (iApp)"
+  hosts: bigips
+  gather_facts: False
+  connection: local
+
+  vars:
+    state: "present"
+    service_name: "iapp_Web"
+    service_ip: "10.100.115.10"
+
+  tasks:
+    - name: Build POST body
+      template: src=f5.http.j2 dest=./f5.http.yml
+
+    - name: Adjust an iApp
+      uri:
+        url: "https://{{ inventory_hostname }}/mgmt/tm/cloud/services/iapp/{{ service_name }}"
+        method: "{{ (state == 'present') | ternary('POST', 'DELETE') }}"
+        body: "{{ (lookup('template','f5.http.yml') | from_yaml) }}"
+        body_format: json
+        user: "{{ bigip_user }}"
+        password: "{{ bigip_pass }}"
+        validate_certs: no
+
+...
