@@ -1,2 +1,6 @@
 [bigips]
 bip_A.f5labs.one
+
+[webservers]
+10.100.112.1
+10.100.112.2
