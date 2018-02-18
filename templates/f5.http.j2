@@ -1,0 +1,72 @@
+---
+name: "{{ service_name }}"
+template: f5.http
+vars:
+  asm__asm_template: POLICY_TEMPLATE_RAPID_DEPLOYMENT
+  asm__language: utf-8
+  asm__use_asm: "/#create_new#"
+  client__http_compression: "/#create_new#"
+  client__standard_caching_without_wa: "/#create_new#"
+  client__tcp_wan_opt: "/#create_new#"
+  monitor__frequency: "10"
+  monitor__http_method: GET
+  monitor__monitor: "/#create_new#"
+  monitor__response: 200 OK
+  monitor__uri: "/monitor.php"
+  net__client_mode: wan
+  net__same_subnet: "yes"
+  net__server_mode: lan
+  net__snat_type: automap
+  net__v13_tcp: "yes"
+  net__vlan_mode: all
+  pool__addr: "{{ service_ip }}"
+  pool__fallback_persist: "/#source#"
+  pool__http: "/#create_new#"
+  pool__lb_method: least-connections-member
+  pool__persist: "/#cookie#"
+  pool__pool_to_use: "/#create_new#"
+  pool__port_secure: "443"
+  pool__redirect_port: "80"
+  pool__redirect_to_https: "yes"
+  pool__use_pga: "no"
+  pool__xff: "yes"
+  server__ntlm: "/#do_not_use#"
+  server__oneconnect: "/#create_new#"
+  server__slow_ramp_setvalue: "300"
+  server__tcp_lan_opt: "/#create_new#"
+  server__tcp_req_queueing: "no"
+  server__use_slow_ramp: "yes"
+  ssl__cert: "/Common/default.crt"
+  ssl__client_ssl_profile: "/#create_new#"
+  ssl__key: "/Common/default.key"
+  ssl__mode: client_ssl_server_ssl
+  ssl__server_ssl_profile: "/#default#"
+  ssl__use_chain_cert: "/Common/ca-bundle.crt"
+  ssl_encryption_questions__advanced: "yes"
+  ssl_encryption_questions__help: hide
+  stats__analytics: "/#do_not_use#"
+  stats__request_logging: "/#do_not_use#"
+  stats__tcp_analytics: "/#do_not_use#"
+tables:
+  basic__snatpool_members: {}
+  net__snatpool_members: {}
+  optimizations__hosts: {}
+  pool__hosts:
+    columns:
+    - name
+    rows:
+    - - www.f5labs.one
+  pool__members:
+    columns:
+    - addr
+    - port_secure
+    - connection_limit
+    rows:
+{% for host in groups.webservers %}
+    - - "{{ host }}"
+      - "443"
+      - "0"
+{% endfor %}
+  server_pools__servers: {}
+generation: 0
+lastUpdateMicros: 0
