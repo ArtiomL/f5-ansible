@@ -1,6 +1,6 @@
 ---
 
-- name: Slack notification
+- name: Slack notification task
   slack:
     token: "{{ slack_token }}"
     username: "Ansible"
