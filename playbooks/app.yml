@@ -68,6 +68,6 @@
         state: "{{ state }}"
       when: state == "present"
 
-    - include: slack.yml
+    - include: slack.yml msg="Web app"
 
 ...
