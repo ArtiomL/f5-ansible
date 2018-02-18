@@ -37,13 +37,13 @@
     - name: Adjust first node
       bigip_node:
         name: "node_Srv1"
-        host: "10.100.112.1"
+        host: "{{ groups['webservers'][0] }}"
         state: "{{ state }}"
 
     - name: Adjust second node
       bigip_node:
         name: "node_Srv2"
-        host: "10.100.112.2"
+        host: "{{ groups['webservers'][1] }}"
         state: "{{ state }}"
 
     - name: Add nodes to pool
@@ -55,9 +55,9 @@
         state: "{{ state }}"
       with_items:
         - name: "node_Srv1"
-          host: "10.100.112.1"
+          host: "{{ groups['webservers'][0] }}"
         - name: "node_Srv2"
-          host: "10.100.112.2"
+          host: "{{ groups['webservers'][1] }}"
       when: state == "present"
 
     - name: Update a VS
