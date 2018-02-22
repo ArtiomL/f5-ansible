@@ -105,7 +105,7 @@ For example:
 ## Demos
 
 ### Imperative
-[![Imperative Playbooks](https://img.youtube.com/vi/5QiNgWZeOw0/0.jpg)](https://www.youtube.com/watch?v=5QiNgWZeOw0)
+https://www.youtube.com/watch?v=5QiNgWZeOw0
 
 ### Declarative
 
