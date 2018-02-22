@@ -19,6 +19,7 @@
 - [Playbooks](#playbooks)
 	- [Deploy](#deploy)
 	- [Teardown](#teardown)
+- [Demos](#demos)
 - [Help](#--help)
 - [License](LICENSE)
 
@@ -101,10 +102,20 @@ For example:
 
 &nbsp;&nbsp;
 
+## Demos
+
+### Imperative
+https://www.youtube.com/watch?v=5QiNgWZeOw0
+
+### Declarative
+
+
+&nbsp;&nbsp;
+
 ## --help
 ```shell
 ./runsible.py --help
-usage: runsible.py [-h] [-d] [-t] [-v] [PLAYBOOK]
+usage: runsible.py [-h] [-d] [-i IP] [-n NAME] [-t] [-v] [PLAYBOOK]
 
 Run Ansible playbooks, executing the defined tasks on targeted hosts
 
@@ -114,6 +125,8 @@ positional arguments:
 optional arguments:
   -h, --help      show this help message and exit
   -d, --deploy    deploy a playbook (default)
+  -i IP           service (VS) IP address
+  -n NAME         service template (iApp) name
   -t, --teardown  teardown a playbook state
   -v, --verbose   increase output verbosity
 
