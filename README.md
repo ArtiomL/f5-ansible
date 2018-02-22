@@ -19,6 +19,7 @@
 - [Playbooks](#playbooks)
 	- [Deploy](#deploy)
 	- [Teardown](#teardown)
+- [Demos](#demos)
 - [Help](#--help)
 - [License](LICENSE)
 
@@ -98,6 +99,16 @@ For example:
 # Which executes:
 # ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 ```
+
+&nbsp;&nbsp;
+
+## Demos
+
+### Imperative
+https://youtu.be/5QiNgWZeOw0
+
+### Declarative
+
 
 &nbsp;&nbsp;
 
