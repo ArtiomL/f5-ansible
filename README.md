@@ -100,14 +100,26 @@ For example:
 # ansible-playbook playbooks/app.yml -e @creds.yml --ask-vault-pass -e state="absent"
 ```
 
+### Service Template
+```shell
+./runsible.py {playbook_name} -n {service_name} -i {service_ip}
+```
+For example:
+```shell
+./runsible.py iapp -n iapp_Web1 -i 10.100.115.11
+# Which executes:
+# ansible-playbook playbooks/iapp.yml -e @creds.yml --ask-vault-pass -e service_name="iapp_Web1" -e service_ip="10.100.115.11"
+```
+
 &nbsp;&nbsp;
 
 ## Demos
 
-### Imperative
+### Imperative Playbooks
 https://www.youtube.com/watch?v=5QiNgWZeOw0
 
-### Declarative
+### Declarative Automation
+https://www.youtube.com/watch?v=hy7GU2GfsWc
 
 
 &nbsp;&nbsp;
