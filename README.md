@@ -19,6 +19,7 @@
 - [Playbooks](#playbooks)
 	- [Deploy](#deploy)
 	- [Teardown](#teardown)
+	- [Service Template](#service-template)
 - [Demos](#demos)
 - [Help](#--help)
 - [License](LICENSE)
