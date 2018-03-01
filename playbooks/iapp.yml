@@ -24,6 +24,8 @@
         password: "{{ bigip_pass }}"
         validate_certs: no
 
-    - include: slack.yml msg="Service template *{{ service_name }}*"
+    - import_tasks: slack.yml
+      vars:
+        msg: "Service template *{{ service_name }}*"
 
 ...
