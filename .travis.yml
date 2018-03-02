@@ -1,7 +1,7 @@
 # f5-ansible - CI Build
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.1, 28/01/2018
+# v1.0.2, 02/03/2018
 
 sudo: required
 
@@ -19,6 +19,8 @@ before_script:
 
 script:
   - docker build -t $REPO .
+  - sed -i '/USER 1001/d' Dockerfile
+  - docker build -t $REPO:su .
   - cp experimental/Dockerfile .
   - docker build -t $REPO:dev .
   - test/run.sh
@@ -28,6 +30,7 @@ after_success:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u $DOCKER_USER -p $DOCKER_PASS;
     docker push $REPO;
+    docker push $REPO:su;
     docker push $REPO:dev;
     fi
 

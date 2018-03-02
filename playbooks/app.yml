@@ -68,6 +68,8 @@
         state: "{{ state }}"
       when: state == "present"
 
-    - include: slack.yml msg="Web app"
+    - import_tasks: slack.yml
+      vars:
+        msg: "Web app"
 
 ...
