@@ -1,5 +1,0 @@
-pipeline:
-  deploy:
-    image: artioml/f5-ansible:su
-    commands:
-      - ansible-playbook playbooks/iapp.yml -e @creds.yml --vault-password-file password -e service_name="iapp_Web1" -e service_ip="10.100.115.11"
