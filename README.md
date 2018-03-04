@@ -133,7 +133,7 @@ usage: runsible.py [-h] [-c] [-d] [-i IP] [-n NAME] [-t] [-v] [PLAYBOOK]
 Run Ansible playbooks, executing the defined tasks on targeted hosts
 
 positional arguments:
-  PLAYBOOK              playbook name (default: app)
+  PLAYBOOK              playbook name (default: iapp)
 
 optional arguments:
   -h, --help            show this help message and exit
