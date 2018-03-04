@@ -4,6 +4,8 @@ pipeline:
   deploy:
     image: artioml/f5-ansible:su
     commands:
-      - ./runsible.py --help
+      - ./runsible.py --iac
+
+branches: master
 
 ...
