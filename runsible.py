@@ -32,10 +32,10 @@ def main():
 	objArgs = funArgParser()
 	strParams = ''
 	strPlay = 'playbooks/%s.yml' % objArgs.PLAYBOOK
-	if objArgs.verbose:
-		strParams += '-vvv '
 	if objArgs.teardown:
 		strParams += '-e state="absent" '
+	if objArgs.verbose:
+		strParams += '-vvv '
 	if objArgs.ip:
 		strParams += '-e service_ip="%s" ' % objArgs.ip
 	if objArgs.name:
