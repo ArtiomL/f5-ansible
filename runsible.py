@@ -32,6 +32,17 @@ def main():
 	objArgs = funArgParser()
 	strParams = ''
 	strPlay = 'playbooks/%s.yml' % objArgs.PLAYBOOK
+	if objArgs.iac:
+		diConfig = yaml.load(open('iac/config.yml', 'r'))
+		for strName, diVars in diConfig['apps'].iteritems():
+			strParams = '-e service_name="%s" ' % strName
+			if not diVars['state']:
+				strParams += '-e state="absent" '
+			else:
+				strParams += '-e service_ip="%s" ' % diVars['ip']
+			strCmd = 'ansible-playbook %s -e @creds.yml --vault-password-file .password %s' % (strPlay, strParams)
+			subprocess.call(strCmd, shell = True)
+		sys.exit()
 	if objArgs.teardown:
 		strParams += '-e state="absent" '
 	if objArgs.verbose:
