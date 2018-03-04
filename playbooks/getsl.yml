@@ -1,0 +1,12 @@
+---
+
+- name: Get iApp service list
+  uri:
+    url: "https://{{ inventory_hostname }}/mgmt/tm/cloud/services/iapp/"
+    user: "{{ bigip_user }}"
+    password: "{{ bigip_pass }}"
+    validate_certs: no
+    return_content: yes
+  register: service_list
+
+...
