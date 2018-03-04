@@ -11,6 +11,13 @@
     service_ip: "10.100.115.10"
 
   tasks:
+    - import_tasks: getsl.yml
+      when: state == "absent"
+
+    - name: Check if {{ service_name }} is deployed
+      meta: end_play
+      when: 'state == "absent" and service_name not in (service_list.content|from_json)["items"]'
+
     - name: Build POST body
       template: src=f5.http.j2 dest=./f5.http.yml
 
