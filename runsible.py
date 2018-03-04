@@ -24,7 +24,7 @@ def funArgParser():
 	objArgParser.add_argument('-n', '--name', help ='service template (iApp) name', dest = 'name')
 	objArgParser.add_argument('-t', '--teardown', help ='teardown a playbook state', action = 'store_true')
 	objArgParser.add_argument('-v', '--verbose', help='increase output verbosity', action='store_true')
-	objArgParser.add_argument('PLAYBOOK', help = 'playbook name (default: app)', nargs = '?', default = 'app')
+	objArgParser.add_argument('PLAYBOOK', help = 'playbook name (default: iapp)', nargs = '?', default = 'iapp')
 	return objArgParser.parse_args()
 
 
