@@ -2,24 +2,26 @@
 # f5-ansible - Run Playbooks
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.1, 22/02/2018
+# v1.0.2, 04/03/2018
 
 import argparse
 import subprocess
 import sys
+import yaml
 
 __author__ = 'Artiom Lichtenstein'
 __license__ = 'MIT'
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 
 def funArgParser():
 	objArgParser = argparse.ArgumentParser(
 		description = 'Run Ansible playbooks, executing the defined tasks on targeted hosts',
 		epilog = 'https://github.com/ArtiomL/f5-ansible')
+	objArgParser.add_argument('-c', '--iac', help ='infrastructure as code build', action = 'store_true')
 	objArgParser.add_argument('-d', '--deploy', help ='deploy a playbook (default)', action = 'store_true')
-	objArgParser.add_argument('-i', help ='service (VS) IP address', dest = 'ip')
-	objArgParser.add_argument('-n', help ='service template (iApp) name', dest = 'name')
+	objArgParser.add_argument('-i', '--ip', help ='service (VS) IP address', dest = 'ip')
+	objArgParser.add_argument('-n', '--name', help ='service template (iApp) name', dest = 'name')
 	objArgParser.add_argument('-t', '--teardown', help ='teardown a playbook state', action = 'store_true')
 	objArgParser.add_argument('-v', '--verbose', help='increase output verbosity', action='store_true')
 	objArgParser.add_argument('PLAYBOOK', help = 'playbook name (default: app)', nargs = '?', default = 'app')
