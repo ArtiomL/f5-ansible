@@ -1,0 +1,18 @@
+---
+
+version: '3'
+
+services:
+
+  gitlab:
+    image: gitlab/gitlab-ce
+    ports:
+      - 80:80
+    hostname: gitlab.f5labs.one
+    volumes:
+      - /srv/gitlab/config:/etc/gitlab
+      - /srv/gitlab/logs:/var/log/gitlab
+      - /srv/gitlab/data:/var/opt/gitlab
+    restart: always
+
+...

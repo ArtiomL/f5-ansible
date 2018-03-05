@@ -1,5 +1,5 @@
 [bigips]
-bip_A.f5labs.one
+bip-a.f5labs.one
 
 [webservers]
 10.100.112.1

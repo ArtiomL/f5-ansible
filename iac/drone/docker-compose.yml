@@ -1,0 +1,36 @@
+---
+
+version: '3'
+
+services:
+
+  drone-server:
+    image: drone/drone
+    ports:
+      - 8000:8000
+      - 9000:9000
+    volumes:
+      - /var/lib/drone:/var/lib/drone/
+    restart: always
+    environment:
+      - DRONE_OPEN=true
+      - DRONE_HOST=http://drone.f5labs.one:8000
+      - DRONE_GITLAB=true
+      - DRONE_GITLAB_CLIENT=${DRONE_GITLAB_CLIENT}
+      - DRONE_GITLAB_SECRET=${DRONE_GITLAB_SECRET}
+      - DRONE_GITLAB_URL=http://gitlab.f5labs.one
+      - DRONE_SECRET=${DRONE_SECRET}
+
+  drone-agent:
+    image: drone/agent
+    command: agent
+    restart: always
+    depends_on:
+      - drone-server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_SERVER=drone-server:9000
+      - DRONE_SECRET=${DRONE_SECRET}
+
+...
