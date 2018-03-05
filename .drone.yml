@@ -1,11 +1,15 @@
 ---
 
 pipeline:
+  test:
+    image: artioml/f5-ansible:su
+    commands:
+      - /bin/sh test/run.sh
   deploy:
     image: artioml/f5-ansible:su
     commands:
       - ./runsible.py --iac
-
-branches: master
+    when:
+      branch: master
 
 ...

@@ -33,6 +33,7 @@ def main():
 	strParams = ''
 	strPlay = 'playbooks/%s.yml' % objArgs.PLAYBOOK
 	if objArgs.iac:
+		intExit = 0
 		diConfig = yaml.load(open('iac/config.yml', 'r'))
 		for strName, diVars in diConfig['apps'].iteritems():
 			strParams = '-e service_name="%s" ' % strName
@@ -41,8 +42,9 @@ def main():
 			else:
 				strParams += '-e service_ip="%s" ' % diVars['ip']
 			strCmd = 'ansible-playbook %s -e @creds.yml --vault-password-file .password %s' % (strPlay, strParams)
-			subprocess.call(strCmd, shell = True)
-		sys.exit()
+			intExit += subprocess.call(strCmd, shell = True)
+		sys.exit(intExit)
+
 	if objArgs.teardown:
 		strParams += '-e state="absent" '
 	if objArgs.verbose:
@@ -52,7 +54,7 @@ def main():
 	if objArgs.name:
 		strParams += '-e service_name="%s" ' % objArgs.name
 	strCmd = 'ansible-playbook %s -e @creds.yml --ask-vault-pass %s' % (strPlay, strParams)
-	subprocess.call(strCmd, shell = True)
+	sys.exit(subprocess.call(strCmd, shell = True))
 
 
 def funBadExit(type, value, traceback):
