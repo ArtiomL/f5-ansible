@@ -20,7 +20,7 @@ def funArgParser():
 		epilog = 'https://github.com/ArtiomL/f5-ansible')
 	objArgParser.add_argument('-c', '--iac', help ='infrastructure as code build', action = 'store_true')
 	objArgParser.add_argument('-d', '--deploy', help ='deploy a playbook (default)', action = 'store_true')
-	objArgParser.add_argument('-g', '--group', help ='service (VS) IP address', dest = 'group')
+	objArgParser.add_argument('-g', '--group', help ='inventory group for service nodes', dest = 'group')
 	objArgParser.add_argument('-i', '--ip', help ='service (VS) IP address', dest = 'ip')
 	objArgParser.add_argument('-n', '--name', help ='service template (iApp) name', dest = 'name')
 	objArgParser.add_argument('-t', '--teardown', help ='teardown a playbook state', action = 'store_true')
