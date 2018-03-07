@@ -4,12 +4,12 @@ apps:
   iapp_Web1:
     description: A web app protected by WAF
     ip: 10.100.115.11
-    owner: artioml
+    group: webservers
     state: true
   iapp_Web2:
     description:
     ip: 10.100.115.12
-    owner:
+    group:
     state: false
 
 ...
