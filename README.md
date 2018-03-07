@@ -130,7 +130,7 @@ https://www.youtube.com/watch?v=hy7GU2GfsWc
 &nbsp;&nbsp;
 
 ## --help
-```shell
+```
 ./runsible.py --help
 usage: runsible.py [-h] [-c] [-d] [-g GROUP] [-i IP] [-n NAME] [-t] [-v]
                    [PLAYBOOK]
