@@ -132,7 +132,8 @@ https://www.youtube.com/watch?v=hy7GU2GfsWc
 ## --help
 ```shell
 ./runsible.py --help
-usage: runsible.py [-h] [-c] [-d] [-i IP] [-n NAME] [-t] [-v] [PLAYBOOK]
+usage: runsible.py [-h] [-c] [-d] [-g GROUP] [-i IP] [-n NAME] [-t] [-v]
+                   [PLAYBOOK]
 
 Run Ansible playbooks, executing the defined tasks on targeted hosts
 
@@ -143,6 +144,8 @@ optional arguments:
   -h, --help            show this help message and exit
   -c, --iac             infrastructure as code build
   -d, --deploy          deploy a playbook (default)
+  -g GROUP, --group GROUP
+                        inventory group for service nodes
   -i IP, --ip IP        service (VS) IP address
   -n NAME, --name NAME  service template (iApp) name
   -t, --teardown        teardown a playbook state
