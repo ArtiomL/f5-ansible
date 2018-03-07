@@ -4,11 +4,16 @@ apps:
   iapp_Web1:
     description: A web app protected by WAF
     ip: 10.100.115.11
-    group: webservers
+    group: prod
     state: true
   iapp_Web2:
     description:
     ip: 10.100.115.12
+    group:
+    state: false
+  iapp_Web3:
+    description:
+    ip: 10.100.115.13
     group:
     state: false
 
