@@ -62,7 +62,7 @@ tables:
     - port_secure
     - connection_limit
     rows:
-{% for host in groups.webservers %}
+{% for host in groups[service_group] %}
     - - "{{ host }}"
       - "443"
       - "0"
