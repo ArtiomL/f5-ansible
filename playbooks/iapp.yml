@@ -9,6 +9,7 @@
     state: "present"
     service_name: "iapp_Web"
     service_ip: "10.100.115.10"
+    service_group: "webservers"
 
   tasks:
     - import_tasks: getsl.yml
