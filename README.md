@@ -20,6 +20,7 @@
 	- [Deploy](#deploy)
 	- [Teardown](#teardown)
 	- [Service Template](#service-template)
+	- [Infrastructure as Code](#infrastructure-as-code)
 - [Demos](#demos)
 - [Help](#--help)
 - [License](LICENSE)
@@ -107,13 +108,41 @@ For example:
 
 ### Service Template
 ```shell
-./runsible.py {playbook_name} -n {service_name} -i {service_ip}
+./runsible.py {playbook_name} -n [service_name] -i [service_ip] -g [service_group]
 ```
 For example:
 ```shell
 ./runsible.py iapp -n iapp_Web1 -i 10.100.115.11
 # Which executes:
 # ansible-playbook playbooks/iapp.yml -e @creds.yml --ask-vault-pass -e service_name="iapp_Web1" -e service_ip="10.100.115.11"
+```
+
+### Infrastructure as Code
+```shell
+./runsible.py --iac
+```
+This helper script is using [iac/config.yml](iac/config.yml) as the L4-L7 configuration Single Source of Truth:
+```yaml
+---
+
+apps:
+  iapp_Web1:
+    description: A web app protected by WAF
+    ip: 10.100.115.11
+    group: prod
+    state: true
+  iapp_Web2:
+    description:
+    ip: 10.100.115.12
+    group:
+    state: false
+  iapp_Web3:
+    description:
+    ip: 10.100.115.13
+    group:
+    state: false
+
+...
 ```
 
 &nbsp;&nbsp;
