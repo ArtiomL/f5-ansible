@@ -121,7 +121,7 @@ For example:
 ```shell
 ./runsible.py --iac
 ```
-This helper script is using [`iac/config.yml`](iac/config.yml) as the L4-L7 configuration Single Source of Truth to deploy the infrastructur:
+This helper script is using [`iac/config.yml`](iac/config.yml) as the L4-L7 configuration Single Source of Truth to deploy the infrastructure:
 ```yaml
 ---
 
