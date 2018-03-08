@@ -155,6 +155,8 @@ https://www.youtube.com/watch?v=5QiNgWZeOw0
 ### Declarative Automation
 https://www.youtube.com/watch?v=hy7GU2GfsWc
 
+### Infrastructure as Code
+https://www.youtube.com/watch?v=vGxng8h8S5s
 
 &nbsp;&nbsp;
 
