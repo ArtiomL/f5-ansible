@@ -48,7 +48,7 @@ docker run -it artioml/f5-ansible:dev
 ```
 
 ### Credentials
-The encrypted [vault](https://docs.ansible.com/ansible/latest/vault.html) file ([creds.yml](creds.yml)) contains the BIG-IP credentials and the Slack incoming webhook token (used for notifications).
+The encrypted [vault](https://docs.ansible.com/ansible/latest/vault.html) file ([creds.yml](creds.yml)) contains the BIG-IP credentials and the Slack [incoming webhook](https://my.slack.com/services/new/incoming-webhook/) token (used for notifications).
 
 The vault password is: **_password_**
 
