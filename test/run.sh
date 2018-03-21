@@ -4,7 +4,7 @@
 # Artiom Lichtenstein
 # v1.0.3, 21/03/2018
 
-set -xeuo pipefail
+set -xeo pipefail
 
 REPO="artioml/f5-ansible"
 
