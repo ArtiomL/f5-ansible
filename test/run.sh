@@ -2,10 +2,9 @@
 # f5-ansible - Run Tests
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.2, 05/03/2018
+# v1.0.3, 21/03/2018
 
-set -xe
-set -o pipefail
+set -xeo pipefail
 
 REPO="artioml/f5-ansible"
 
