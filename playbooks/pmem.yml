@@ -1,0 +1,36 @@
+---
+
+- name: "Enable / force offline a pool member"
+  hosts: bigips
+  gather_facts: False
+  connection: local
+
+  vars:
+    state: "disabled"
+    pool: "pool_Web"
+    node_name: "node_Srv1"
+    node_ip: "10.100.112.1"
+    node_port: 80
+
+  environment: "{{ bigip_env }}"
+
+  tasks:
+    - name: Adjust pool member state
+      bigip_pool_member:
+        pool: "{{ pool }}"
+        name: "{{ node_name }}"
+        port: "{{ node_port }}"
+        session_state: "{{ state }}"
+        monitor_state: "{{ state }}"
+
+    - name: Query active connections
+      bigip_command:
+        commands:
+          - "show /sys connection ss-server-addr {{ node_ip }} ss-server-port {{ node_port }} | grep Total | cut -d':' -f2"
+      register: cur_conn
+      until: cur_conn.stdout_lines[0][0] == " 0"
+      retries: 10
+      delay: 1
+      when: state == "disabled"
+
+...
