@@ -1,6 +1,6 @@
 ---
 
-- name: "Enable / force offline a pool member"
+- name: "Force offline / enable a pool member"
   hosts: bigips
   gather_facts: False
   connection: local
