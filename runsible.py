@@ -36,7 +36,7 @@ def main():
 	if objArgs.iac:
 		intExit = 0
 		diConfig = yaml.load(open('iac/config.yml', 'r'))
-		for strName, diVars in diConfig['apps'].iteritems():
+		for strName, diVars in diConfig['apps'].items():
 			strParams = '-e service_name="%s" ' % strName
 			if not diVars['state']:
 				strParams += '-e state="absent" '
