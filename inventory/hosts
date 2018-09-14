@@ -1,3 +1,6 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+
 [bigips]
 bip-a.f5labs.one
 
