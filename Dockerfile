@@ -1,16 +1,16 @@
 # f5-ansible - Dockerfile
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.5, 21/08/2018
+# v1.0.6, 15/09/2018
 
 FROM alpine
 
-LABEL maintainer="Artiom Lichtenstein" version="1.0.5"
+LABEL maintainer="Artiom Lichtenstein" version="1.0.6"
 
 # Core dependencies
 RUN apk add --update --no-cache ansible git && \
+	pip3 install --upgrade pip && \
 	pip3 install bigsuds f5-sdk netaddr deepdiff && \
-	test -e /usr/bin/python || (ln -sf /usr/bin/python3 /usr/bin/python) && \
 	rm -rf /var/cache/apk/*
 
 # Ansible
