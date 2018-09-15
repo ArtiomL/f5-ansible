@@ -8,11 +8,12 @@ FROM alpine
 LABEL maintainer="Artiom Lichtenstein" version="1.0.5"
 
 # Core dependencies
-RUN apk add --update --no-cache gcc git libc-dev libffi libffi-dev make openssl openssl-dev python3-dev && \
-	pip3 install --upgrade pip && \
-	pip3 install bigsuds f5-sdk netaddr deepdiff && \
-	pip3 install git+https://github.com/ansible/ansible.git && \
-	apk del gcc libc-dev libffi-dev make openssl-dev && \
+RUN apk add --update --no-cache gcc git libc-dev libffi libffi-dev make openssl openssl-dev python3 python3-dev && \
+	pip3 install --no-cache-dir --upgrade pip && \
+	pip3 install --no-cache-dir bigsuds f5-sdk netaddr deepdiff && \
+	pip3 install --no-cache-dir git+https://github.com/ansible/ansible.git && \
+	apk del gcc libc-dev libffi-dev make openssl-dev python3-dev && \
+	pip3 uninstall -y pip setuptools && \
 	rm -rf /var/cache/apk/*
 
 # Ansible
