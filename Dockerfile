@@ -9,8 +9,9 @@ LABEL maintainer="Artiom Lichtenstein" version="1.0.6"
 
 # Core dependencies
 RUN apk add --update --no-cache ansible git && \
-	pip3 install --upgrade pip && \
-	pip3 install bigsuds f5-sdk netaddr deepdiff && \
+	pip3 install --no-cache-dir --upgrade pip && \
+	pip3 install --no-cache-dir bigsuds f5-sdk netaddr deepdiff && \
+	pip3 uninstall -y pip setuptools && \
 	rm -rf /var/cache/apk/*
 
 # Ansible
