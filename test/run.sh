@@ -9,7 +9,7 @@ set -xeo pipefail
 REPO="artioml/f5-ansible"
 
 # Linting
-for file in */*.yml; do echo "$file"; python -c 'import yaml,sys; yaml.safe_load(sys.stdin)' < "$file"; done
+for file in */*.yml; do echo "$file"; python3 -c 'import yaml,sys; yaml.safe_load(sys.stdin)' < "$file"; done
 
 # Ansible check mode
 str_TEST="ansible --version; \
