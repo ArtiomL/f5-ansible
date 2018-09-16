@@ -11,5 +11,9 @@ pipeline:
       - ./runsible.py --iac
     when:
       branch: master
+  slack:
+    image: plugins/slack
+    secrets: [ slack_webhook ]
+    channel: code
 
 ...

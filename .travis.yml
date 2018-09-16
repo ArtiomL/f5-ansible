@@ -23,6 +23,7 @@ script:
   - docker build -t $REPO:su .
   - cp experimental/Dockerfile .
   - docker build -t $REPO:dev .
+  - docker images
   - test/run.sh
 
 after_success:

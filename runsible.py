@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # f5-ansible - Run Playbooks
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.3, 07/03/2018
+# v1.0.4, 15/09/2018
 
 import argparse
 import subprocess
@@ -11,7 +11,7 @@ import yaml
 
 __author__ = 'Artiom Lichtenstein'
 __license__ = 'MIT'
-__version__ = '1.0.3'
+__version__ = '1.0.4'
 
 
 def funArgParser():
@@ -36,7 +36,7 @@ def main():
 	if objArgs.iac:
 		intExit = 0
 		diConfig = yaml.load(open('iac/config.yml', 'r'))
-		for strName, diVars in diConfig['apps'].iteritems():
+		for strName, diVars in diConfig['apps'].items():
 			strParams = '-e service_name="%s" ' % strName
 			if not diVars['state']:
 				strParams += '-e state="absent" '
