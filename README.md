@@ -22,7 +22,6 @@
 	- [Service Template](#service-template)
 	- [Infrastructure as Code](#infrastructure-as-code)
 - [Demos](#demos)
-- [Versions](#versions)
 - [Help](#--help)
 - [License](LICENSE)
 
@@ -158,41 +157,6 @@ https://www.youtube.com/watch?v=hy7GU2GfsWc
 
 ### Infrastructure as Code
 https://www.youtube.com/watch?v=vGxng8h8S5s
-
-&nbsp;&nbsp;
-
-## Versions
-
-#### `latest`
-
-```
-$ docker run -it artioml/f5-ansible
-/opt/ansible $ 
-/opt/ansible $ ansible --version
-ansible 2.5.5
-  config file = /opt/ansible/ansible.cfg
-  configured module search path = ['/home/user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3.6/site-packages/ansible
-  executable location = /usr/bin/ansible
-  python version = 3.6.6 (default, Aug 24 2018, 05:04:18) [GCC 6.4.0]
-/opt/ansible $
-
-```
-
-#### `dev`
-
-```
-$ docker run -it artioml/f5-ansible:dev
-/opt/ansible $ 
-/opt/ansible $ ansible --version
-ansible 2.8.0.dev0
-  config file = /opt/ansible/ansible.cfg
-  configured module search path = ['/home/user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3.6/site-packages/ansible
-  executable location = /usr/bin/ansible
-  python version = 3.6.6 (default, Aug 24 2018, 05:04:18) [GCC 6.4.0]
-/opt/ansible $
-```
 
 &nbsp;&nbsp;
 
