@@ -2,17 +2,17 @@
 # f5-ansible - Run Tests
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.5, 16/09/2018
+# v1.0.6, 19/09/2018
 
 set -xeo pipefail
 
 REPO="artioml/f5-ansible"
 
 # Linting
-for file in */*.yml; do echo "$file"; python -c 'import yaml,sys; yaml.safe_load(sys.stdin)' < "$file"; done
+str_TEST="yamllint -c test/lint.yml */*.yml;"
 
 # Ansible check mode
-str_TEST="ansible --version; \
+str_TEST="$str_TEST ansible --version; \
 	ansible-playbook playbooks/*app.yml playbooks/cmd.yml playbooks/pmem.yml --syntax-check; \
 	ansible-playbook playbooks/app.yml --list-hosts | grep $(cat inventory/hosts | awk '/bigips/{getline; print}'); \
 	touch playbooks/f5.http.yml; \

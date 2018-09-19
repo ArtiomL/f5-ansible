@@ -2,13 +2,13 @@
 # f5-ansible - Interactive Tests
 # https://github.com/ArtiomL/f5-ansible
 # Artiom Lichtenstein
-# v1.0.0, 07/03/2018
+# v1.0.2, 19/09/2018
 
 git clone https://github.com/ArtiomL/f5-ansible.git
 cd f5-ansible
 
 # Linting
-for file in */*.yml; do echo "$file"; python -c 'import yaml,sys; yaml.safe_load(sys.stdin)' < "$file"; done
+yamllint -c test/lint.yml */*.yml
 
 # Credentials
 ansible-vault edit creds.yml --vault-password-file .password

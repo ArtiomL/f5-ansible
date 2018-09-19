@@ -38,12 +38,14 @@ Essential Ansible container(s) with F5 modules, extensible playbooks and Slack n
 ### Run
 ```shell
 # Stable
+# Ansible v2.5.5, Python v3.6.6
 docker run -it artioml/f5-ansible
 
 # Stable, runs as root (for Drone CI/CD)
 docker run -it artioml/f5-ansible:su
 
 # Experimental
+# Ansible v2.8.0.dev0, Python v3.6.6
 docker run -it artioml/f5-ansible:dev
 ```
 
