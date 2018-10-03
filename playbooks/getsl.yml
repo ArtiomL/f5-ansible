@@ -5,8 +5,8 @@
     url: "https://{{ inventory_hostname }}/mgmt/tm/cloud/services/iapp/"
     user: "{{ bigip_user }}"
     password: "{{ bigip_pass }}"
-    validate_certs: no
-    return_content: yes
+    validate_certs: false
+    return_content: true
   register: service_list
 
 ...

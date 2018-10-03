@@ -2,7 +2,7 @@
 
 - name: "Imperative: Deploy / teardown a web app (VS, pool, nodes)"
   hosts: bigips
-  gather_facts: False
+  gather_facts: false
   connection: local
 
   vars:

@@ -2,7 +2,7 @@
 
 - name: "Declarative: Deploy / teardown a service template (iApp)"
   hosts: bigips
-  gather_facts: False
+  gather_facts: false
   connection: local
 
   vars:
@@ -30,7 +30,7 @@
         body_format: json
         user: "{{ bigip_user }}"
         password: "{{ bigip_pass }}"
-        validate_certs: no
+        validate_certs: false
 
     - import_tasks: slack.yml
       vars:
