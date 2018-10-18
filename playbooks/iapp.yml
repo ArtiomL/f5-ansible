@@ -12,7 +12,7 @@
     service_group: "webservers"
 
   tasks:
-    - import_tasks: getsl.yml
+    - import_tasks: getsl_task.yml
       when: state == "absent"
 
     - name: Check if {{ service_name }} is deployed
@@ -32,7 +32,7 @@
         password: "{{ bigip_pass }}"
         validate_certs: false
 
-    - import_tasks: slack.yml
+    - import_tasks: slack_task.yml
       vars:
         msg: "Service template *{{ service_name }}*"
 
