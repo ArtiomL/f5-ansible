@@ -20,8 +20,8 @@ str_TEST="$str_TEST ansible --version; \
 	./runsible.py --help;"
 
 if [ "$TRAVIS" == "true" ]; then
-	docker run $REPO /bin/sh -c "$str_TEST"
-	docker run $REPO:dev /bin/sh -c "$str_TEST"
+	docker run $REPO /bin/sh -c "set -xeo pipefail; $str_TEST"
+	docker run $REPO:dev /bin/sh -c "set -xeo pipefail; $str_TEST"
 else
 	eval "$str_TEST"
 fi
