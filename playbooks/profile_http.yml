@@ -1,0 +1,43 @@
+---
+
+- name: "Create / delete an HTTP profile"
+  hosts: bigips
+  gather_facts: false
+  connection: local
+
+  vars:
+    state: "present"
+    profile_name: "http-hard"
+    http_url: "https://{{ inventory_hostname }}/mgmt/tm/ltm/profile/http"
+
+  tasks:
+    - name: Set iControl REST URL
+      set_fact:
+        http_url: "{{ http_url }}/{{ profile_name }}"
+      when: state == "absent"
+
+    - name: Adjust an HTTP profile
+      uri:
+        url: "{{ http_url }}"
+        method: "{{ (state == 'present') | ternary('POST', 'DELETE') }}"
+        body:
+          name: "{{ profile_name }}"
+          defaultsFrom: "/Common/http"
+          insertXforwardedFor: enabled
+          serverAgentName: aws
+          enforcement:
+            knownMethods:
+              - GET
+              - HEAD
+              - POST
+              - PUT
+              - DELETE
+            unknownMethod: reject
+          hsts:
+            mode: enabled
+            preload: enabled
+        body_format: json
+        user: "{{ bigip_user }}"
+        password: "{{ bigip_pass }}"
+        validate_certs: false
+...
