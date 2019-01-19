@@ -2,7 +2,7 @@
 [![Build Status](https://img.shields.io/travis/ArtiomL/f5-ansible/develop.svg)](https://travis-ci.org/ArtiomL/f5-ansible)
 [![Releases](https://img.shields.io/github/release/ArtiomL/f5-ansible.svg)](https://github.com/ArtiomL/f5-ansible/releases)
 [![Commits](https://img.shields.io/github/commits-since/ArtiomL/f5-ansible/latest.svg?label=commits%20since)](https://github.com/ArtiomL/f5-ansible/commits/master)
-[![Maintenance](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/ArtiomL/f5-ansible/graphs/code-frequency)
+[![Maintenance](https://img.shields.io/maintenance/yes/2019.svg)](https://github.com/ArtiomL/f5-ansible/graphs/code-frequency)
 [![Issues](https://img.shields.io/github/issues/ArtiomL/f5-ansible.svg)](https://github.com/ArtiomL/f5-ansible/issues)
 [![Docker Hub](https://img.shields.io/docker/pulls/artioml/f5-ansible.svg)](https://hub.docker.com/r/artioml/f5-ansible/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
